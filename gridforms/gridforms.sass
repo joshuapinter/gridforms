@@ -84,8 +84,12 @@
             padding-bottom: 5px
             position: static
             width: 100%
+            margin-bottom: 0
+            padding-top: 10px
         fieldset
             legend
+                // padding-top: 10px
+                // padding-bottom: 0
                 border-bottom: 2px solid $legend-color
                 font-weight: normal
             fieldset legend
@@ -95,22 +99,26 @@
     [data-row-span]
         border-bottom: 1px solid $grid-border-color
         width: 100%
+        display: table
+        height: 56px
         +_clear
-        +_breakpoints(0, 700px)
-            border-bottom: none
+        // +_breakpoints(0, 700px)
+        //     border-bottom: none
         [data-field-span]
+            display: table-cell
             padding: $field-padding
-            float: left
-            +_breakpoints(0, 700px)
-                border-bottom: 1px solid $grid-border-color
-                width: 100% !important
-            +_breakpoints(700px)
-                border-right: 1px solid $grid-border-color
-                display: block
+            // float: left
+            border-right: 1px solid $grid-border-color
+            // +_breakpoints(0, 700px)
+            //     border-bottom: 1px solid $grid-border-color
+            //     width: 100% !important
+            // +_breakpoints(700px)
+            //     border-right: 1px solid $grid-border-color
+            //     display: block
             label:first-child
                 margin-top: 0
                 text-transform: uppercase
-                letter-spacing: 1px
+                // letter-spacing: 1px
                 font-size: $label-font-size
                 color: $label-color
                 display: block
@@ -127,6 +135,9 @@
                 background: lighten($field-focus-color, 5%)
                 cursor: text
 
+            p
+                margin-bottom: 0
+
     // Create row spans for n columns in the grid
     @for $grid_i from 1 through $max-columns
         [data-row-span="#{$grid_i}"]
@@ -140,4 +151,4 @@
 
 // Create Grid Form
 .grid-form
-    +grid-form
+    +grid-form($label-color: #555)
